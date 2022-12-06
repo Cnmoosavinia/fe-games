@@ -3,17 +3,18 @@ import { getReviewById } from "../api";
 import { useParams } from "react-router-dom";
 import "./review.css";
 
-const Review = () => {
+const Review = ({ loading, setLoading }) => {
   const { review_id } = useParams();
   const [singleReview, setSingleReview] = useState({});
 
   useEffect(() => {
     getReviewById(review_id).then((data) => {
       setSingleReview(data);
-      console.log(data);
+      setLoading(false);
     });
   }, [review_id]);
 
+  if (loading) return <p className="loading-screen">Loading Review...</p>;
   return (
     <div className="review-page">
       <h2 className="title">{singleReview.title}</h2>
