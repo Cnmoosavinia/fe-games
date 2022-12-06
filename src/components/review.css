@@ -1,0 +1,44 @@
+.review-page {
+  display: grid;
+  grid-template-columns: auto auto auto;
+  grid-template-rows: auto;
+  grid-template-areas:
+    "title title title"
+    "owner owner date"
+    "body body body"
+    "ch ch lb"
+    "comments comments comments";
+  padding: 10px;
+}
+
+.title {
+  grid-area: title;
+  text-align: left;
+  word-wrap: break-word;
+}
+
+.owner {
+  grid-area: owner;
+  align-self: end;
+}
+
+.date {
+  grid-area: date;
+  align-self: start;
+}
+
+.body {
+  grid-area: body;
+}
+
+.comment-header {
+  grid-area: ch;
+}
+
+.like-button {
+  grid-area: lb;
+}
+
+.comments {
+  grid-area: comments;
+}

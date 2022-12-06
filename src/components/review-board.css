@@ -1,0 +1,43 @@
+.loading-screen {
+  text-align: center;
+}
+
+.review-list {
+  margin: 5px;
+  list-style-type: none;
+  display: grid;
+  grid-gap: 50px;
+  grid-template-columns: repeat(auto-fill, 500px);
+}
+
+.review {
+  /* border-color: black;
+  border: 1px solid; */
+  padding: 5px;
+}
+
+.reviewBox {
+  display: grid;
+  grid-template-columns: 100px 400px;
+  grid-template-rows: auto auto;
+  grid-template-areas:
+    "owner title"
+    "reviewImg reviewImg";
+}
+
+.reviewImg {
+  border-radius: 6%;
+  width: 490px;
+  height: 300px;
+  object-fit: fill;
+}
+
+.title {
+  text-align: left;
+  word-wrap: break-word;
+  padding: 2px;
+}
+
+.owner {
+  padding: 2px;
+}
