@@ -1,8 +1,9 @@
 import "./review-board.css";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-import ReviewList from "./review-list.jsx";
+import { Routes, Route } from "react-router-dom";
 import { useState } from "react";
+import ReviewList from "./review-list.jsx";
 import Review from "./review.jsx";
+import Search from "./search.jsx";
 
 function ReviewBoard() {
   const [reviews, setReviews] = useState([]);
@@ -10,22 +11,27 @@ function ReviewBoard() {
 
   return (
     <div className="ReviewBoard">
-      <BrowserRouter>
-        <Routes>
-          <Route
-            path="/reviews"
-            element={
-              <ReviewList
-                reviews={reviews}
-                setReviews={setReviews}
-                loading={loading}
-                setLoading={setLoading}
-              />
-            }
-          ></Route>
-          <Route path="/reviews/:review_id" element={<Review />}></Route>
-        </Routes>
-      </BrowserRouter>
+      <Routes>
+        <Route
+          path="/"
+          element={<Search loading={loading} setLoading={setLoading} />}
+        ></Route>
+        <Route
+          path="/reviews"
+          element={
+            <ReviewList
+              reviews={reviews}
+              setReviews={setReviews}
+              loading={loading}
+              setLoading={setLoading}
+            />
+          }
+        ></Route>
+        <Route
+          path="/reviews/:review_id"
+          element={<Review loading={loading} setLoading={setLoading} />}
+        ></Route>
+      </Routes>
     </div>
   );
 }
