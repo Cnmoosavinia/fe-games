@@ -1,28 +1,34 @@
 import "./review-board.css";
 import { useEffect } from "react";
 import { getReviewBoard } from "../api";
+import { Link } from "react-router-dom";
 
-function ReviewList({ reviews, setReviews }) {
+function ReviewList({ reviews, setReviews, loading, setLoading }) {
   useEffect(() => {
     getReviewBoard().then((data) => {
       setReviews(data);
+      setLoading(false);
     });
   }, []);
+
+  if (loading) return <p className="loading-screen">Loading Reviews...</p>;
   return (
     <ul className="review-list">
       {reviews.map((review) => {
         return (
-          <li key={review.review_id} className="review">
-            <div className="reviewBox">
-              <h5 className="owner">/{review.owner}</h5>
-              <h3 className="title">{review.title}</h3>
-              <img
-                src={review.review_img_url}
-                alt="review"
-                className="reviewImg"
-              ></img>
-            </div>
-          </li>
+          <Link to={`/reviews/${review.review_id}`}>
+            <li key={review.review_id} className="review">
+              <div className="reviewBox">
+                <h5 className="owner">/{review.owner}</h5>
+                <h3 className="title">{review.title}</h3>
+                <img
+                  src={review.review_img_url}
+                  alt="review"
+                  className="reviewImg"
+                ></img>
+              </div>
+            </li>
+          </Link>
         );
       })}
     </ul>

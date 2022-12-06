@@ -1,3 +1,7 @@
+.loading-screen {
+  text-align: center;
+}
+
 .review-list {
   margin: 5px;
   list-style-type: none;
