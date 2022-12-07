@@ -16,24 +16,20 @@ function ReviewList({ reviews, setReviews, loading, setLoading }) {
     <ul className="review-list">
       {reviews.map((review) => {
         return (
-          <div>
+          <div className="reviewBox">
+            <h5 className="owner">/{review.owner}</h5>
+
             <Link to={`/reviews/${review.review_id}`} key={review.review_id}>
-              <li className="review">
-                <div className="reviewBox">
-                  <h5 className="owner">/{review.owner}</h5>
-                  <h3 className="title">{review.title}</h3>
-                  <img
-                    src={review.review_img_url}
-                    alt="review"
-                    className="reviewImg"
-                  ></img>
-                </div>
-              </li>
+              <h3 className="title">{review.title}</h3>
             </Link>
-            <div className="review-footer">
-              <p className="category">{review.category}</p>
-              <p className="review-votes">👍 {review.votes}</p>
-            </div>
+            <img
+              src={review.review_img_url}
+              alt="review"
+              className="reviewImg"
+            ></img>
+            <p className="category">{review.category}</p>
+            <p className="comment-count">{review.comment_count} Comments</p>
+            <p className="review-votes">{review.votes} Upvotes</p>
           </div>
         );
       })}

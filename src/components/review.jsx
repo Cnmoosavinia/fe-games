@@ -23,7 +23,7 @@ const Review = ({ loading, setLoading }) => {
   if (loading) return <p className="loading-screen">Loading Review...</p>;
   return (
     <div>
-      <div className="review-page">
+      <div className="review">
         <h2 className="title">{singleReview.title}</h2>
         <h6 className="owner">/{singleReview.owner}</h6>
         <h6 className="date">{singleReview.created_at}</h6>

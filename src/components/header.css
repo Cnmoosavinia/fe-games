@@ -1,3 +1,68 @@
+@media (max-width: 500px) {
+  .company-name {
+    display: none;
+  }
+  .username {
+    display: none;
+  }
+}
+
 .Header {
   text-align: center;
+  position: fixed;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: space-between;
+  max-height: 60px;
+  max-width: 100%;
+  background-color: white;
+}
+
+.logo {
+  min-width: 60px;
+  max-width: 60px;
+  min-height: 60px;
+  max-height: 60px;
+  border-radius: 100%;
+}
+
+.my-face-lol {
+  min-width: 60px;
+  max-width: 60px;
+  min-height: 60px;
+  max-height: 60px;
+  border-radius: 50%;
+  padding-right: 2%;
+}
+
+.search-bar {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.categories {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-width: 78px;
+  max-width: 10%;
+}
+
+.profile-section {
+  display: flex;
+}
+
+.company-section {
+  display: flex;
+}
+
+.company-name {
+  overflow: hidden;
+}
+
+.username {
+  overflow: hidden;
+  padding-right: 5px;
 }
