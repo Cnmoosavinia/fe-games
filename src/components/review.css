@@ -36,6 +36,14 @@
 
 .like-button {
   grid-area: lb;
+  border: 0px;
+  background-color: transparent;
+}
+
+.like-button-on {
+  border: 0px;
+  background-color: transparent;
+  filter: hue-rotate(290deg);
 }
 
 .vote-count {
@@ -45,6 +53,14 @@
 
 .dislike-button {
   grid-area: db;
+  border: 0px;
+  background-color: transparent;
+}
+
+.dislike-button-on {
+  border: 0px;
+  background-color: transparent;
+  filter: hue-rotate(290deg);
 }
 
 .comment-list {
