@@ -16,8 +16,8 @@ function ReviewList({ reviews, setReviews, loading, setLoading }) {
     <ul className="review-list">
       {reviews.map((review) => {
         return (
-          <Link to={`/reviews/${review.review_id}`}>
-            <li key={review.review_id} className="review">
+          <Link to={`/reviews/${review.review_id}`} key={review.review_id}>
+            <li className="review">
               <div className="reviewBox">
                 <h5 className="owner">/{review.owner}</h5>
                 <h3 className="title">{review.title}</h3>

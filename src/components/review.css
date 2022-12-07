@@ -6,8 +6,7 @@
     "title title title"
     "owner owner date"
     "body body body"
-    "ch ch lb"
-    "comments comments comments";
+    "ch ch lb";
   padding: 10px;
 }
 
@@ -39,6 +38,37 @@
   grid-area: lb;
 }
 
-.comments {
-  grid-area: comments;
+.comment-list {
+  list-style-type: none;
+}
+
+.comment-box {
+  display: grid;
+  grid-template-columns: auto auto auto;
+  grid-template-rows: auto auto;
+  grid-template-areas:
+    "user user time"
+    "comment comment comment"
+    "up-vote . votes";
+}
+
+.user {
+  grid-area: user;
+}
+
+.time {
+  grid-area: time;
+}
+
+.comment {
+  grid-area: comment;
+}
+
+.up-vote {
+  grid-area: up-vote;
+}
+
+.votes {
+  grid-area: votes;
+  text-align: center;
 }
