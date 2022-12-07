@@ -27,8 +27,8 @@
 
 .reviewImg {
   border-radius: 6%;
-  width: 490px;
-  height: 300px;
+  max-width: 490px;
+  max-height: 300px;
   object-fit: fill;
 }
 
@@ -40,4 +40,20 @@
 
 .owner {
   padding: 2px;
+}
+
+.review-footer {
+  display: grid;
+  grid-template-columns: auto auto;
+  grid-template-rows: auto;
+  grid-template-areas: "category review-votes";
+}
+
+.category {
+  grid-area: category;
+}
+
+.review-votes {
+  grid-area: review-votes;
+  text-align: center;
 }

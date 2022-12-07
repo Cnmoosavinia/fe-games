@@ -3,12 +3,13 @@ import "./review.css";
 import { useParams } from "react-router-dom";
 import { useEffect } from "react";
 
-function Comments({ comments, setComments }) {
+function Comments({ comments, setComments, loading, setLoading }) {
   const { review_id } = useParams();
 
   useEffect(() => {
     getCommentsByReview(review_id).then((data) => {
       setComments(data);
+      setLoading(false);
     });
   }, [review_id]);
 
