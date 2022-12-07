@@ -1,12 +1,12 @@
 .review-page {
   display: grid;
-  grid-template-columns: auto auto auto;
+  grid-template-columns: auto auto auto auto;
   grid-template-rows: auto;
   grid-template-areas:
-    "title title title"
-    "owner owner date"
-    "body body body"
-    "ch ch lb";
+    "title title title title title"
+    "owner owner owner date date"
+    "body body body body body"
+    "ch ch lb vc db";
   padding: 10px;
 }
 
@@ -36,6 +36,15 @@
 
 .like-button {
   grid-area: lb;
+}
+
+.vote-count {
+  grid-area: vc;
+  text-align: center;
+}
+
+.dislike-button {
+  grid-area: db;
 }
 
 .comment-list {

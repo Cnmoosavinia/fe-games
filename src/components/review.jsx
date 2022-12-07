@@ -10,6 +10,7 @@ const Review = ({ loading, setLoading }) => {
   const [comments, setComments] = useState([]);
   const [likedReview, setLikedReview] = useState(0);
   const [likeToggle, setLikeToggle] = useState(false);
+  const [dislikeToggle, setDislikeToggle] = useState(false);
 
   useEffect(() => {
     getReviewById(review_id).then((data) => {
@@ -41,9 +42,28 @@ const Review = ({ loading, setLoading }) => {
               setLikedReview(0);
               setLikeToggle(false);
             }
+            if (dislikeToggle) likeReview(singleReview.review_id);
           }}
         >
-          👍 {singleReview.votes + likedReview}
+          ⬆️
+        </button>
+        <p className="vote-count">{singleReview.votes + likedReview}</p>
+        <button
+          className="dislike-button"
+          onClick={() => {
+            if (!dislikeToggle) {
+              unlikeReview(singleReview.review_id);
+              setDislikeToggle(true);
+              setLikedReview(-1);
+            } else if (dislikeToggle) {
+              likeReview(singleReview.review_id);
+              setLikedReview(0);
+              setDislikeToggle(false);
+            }
+            if (likeToggle) unlikeReview(singleReview.review_id);
+          }}
+        >
+          ⬇️
         </button>
       </div>
       <div>
