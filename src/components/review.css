@@ -1,9 +1,9 @@
 .loading-screen {
+  padding-top: 60px;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   text-align: center;
-  background-color: black;
 }
 
 .review {
@@ -23,11 +23,14 @@
   grid-area: title;
   text-align: left;
   word-wrap: break-word;
+  font-size: 15px;
+  padding-left: 2px;
 }
 
 .owner {
   grid-area: owner;
   align-self: end;
+  width: 80px;
 }
 
 .date {

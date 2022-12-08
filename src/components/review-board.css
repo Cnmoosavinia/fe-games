@@ -1,9 +1,9 @@
 .loading-screen {
+  padding-top: 60px;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   text-align: center;
-  background-color: black;
 }
 
 .ReviewBoard {
@@ -34,12 +34,12 @@
 
 .title {
   text-align: left;
-  word-wrap: break-word;
   grid-area: title;
   height: 50px;
   display: flex;
   flex-direction: column;
   justify-content: center;
+  margin: 0px;
 }
 
 .owner {
@@ -49,24 +49,28 @@
   flex-direction: column;
   justify-content: center;
   padding-left: 2px;
+  margin: 0px;
 }
 
 .category {
   grid-area: category;
   height: 25px;
   padding-left: 2px;
+  margin: 0px;
 }
 
 .comment-count {
   grid-area: comment-count;
   text-align: center;
   height: 25px;
+  margin: 0px;
 }
 
 .review-votes {
   grid-area: review-votes;
   text-align: right;
   padding-right: 10px;
+  margin: 0px;
 }
 
 .reviewBox {
@@ -78,7 +82,7 @@
     "reviewImg reviewImg reviewImg"
     "category comment-count review-votes";
   width: 370px;
-  height: 370px;
+  height: 310px;
   border: 1px;
   border-color: rgb(227, 227, 227);
   border-style: solid;
