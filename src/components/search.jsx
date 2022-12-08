@@ -23,16 +23,16 @@ function Search({ loading, setLoading, setChosenCategory }) {
       <ul className="categories-list">
         {categories.map((category) => {
           return (
-            <button className="category">
-              <Link
-                to={`reviews?category=${category.slug}`}
+            <a href={`/reviews?category=${category.slug}`}>
+              <button
+                className="category"
                 key={category.slug}
                 id={category.slug}
                 onClick={selectCategory}
               >
                 {category.slug}
-              </Link>
-            </button>
+              </button>
+            </a>
           );
         })}
       </ul>

@@ -7,6 +7,7 @@ import Search from "./search.jsx";
 
 function ReviewBoard() {
   const [reviews, setReviews] = useState([]);
+  const [filteredReviews, setFilteredReviews] = useState([]);
   const [loading, setLoading] = useState(true);
   const [chosenCategory, setChosenCategory] = useState("");
 
@@ -31,8 +32,9 @@ function ReviewBoard() {
               setReviews={setReviews}
               loading={loading}
               setLoading={setLoading}
+              filteredReviews={filteredReviews}
+              setFilteredReviews={setFilteredReviews}
               chosenCategory={chosenCategory}
-              setChosenCategory={setChosenCategory}
             />
           }
         ></Route>

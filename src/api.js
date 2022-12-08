@@ -10,6 +10,12 @@ export const getReviewBoard = () => {
   });
 };
 
+export const getReviewBoardByQuery = (inputCategory) => {
+  return reviewApi.get(`/reviews?category=${inputCategory}`).then((res) => {
+    return res.data.reviews;
+  });
+};
+
 export const getReviewById = (review_id) => {
   return reviewApi.get(`reviews/${review_id}`).then((res) => {
     return res.data.review;

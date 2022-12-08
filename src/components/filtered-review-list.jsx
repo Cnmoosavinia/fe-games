@@ -1,34 +1,27 @@
 import "./review-board.css";
 import { useEffect } from "react";
-import { getReviewBoard, getReviewBoardByQuery } from "../api";
+import { getReviewBoardByQuery } from "../api";
 import { Link } from "react-router-dom";
 
-function ReviewList({
-  reviews,
-  setReviews,
-  loading,
-  setLoading,
+function FilteredReviewList(
   filteredReviews,
   setFilteredReviews,
-  chosenCategory,
-}) {
+  loading,
+  setLoading,
+  chosenCategory
+) {
   useEffect(() => {
-    if (chosenCategory === "") {
-      getReviewBoard().then((data) => {
-        setReviews(data);
-        setLoading(false);
-      });
-    } else {
-      getReviewBoardByQuery(chosenCategory).then((data) => {
-        console.log(data);
-      });
-    }
-  }, []);
+    getReviewBoardByQuery(chosenCategory).then((data) => {
+      console.log(data);
+      setFilteredReviews(data);
+      setLoading(false);
+    });
+  }, [chosenCategory]);
 
   if (loading) return <p className="loading-screen">Loading Reviews...</p>;
   return (
     <ul className="review-list">
-      {reviews.map((review) => {
+      {filteredReviews.map((review) => {
         return (
           <div className="reviewBox">
             <h5 className="owner">/{review.owner}</h5>
@@ -51,4 +44,4 @@ function ReviewList({
   );
 }
 
-export default ReviewList;
+export default FilteredReviewList;
