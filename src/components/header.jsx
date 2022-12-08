@@ -15,7 +15,9 @@ function Header() {
           <input type="text" placeholder="Search Reviews.."></input>
         </form>
       </div>
-      <button className="categories">Categories</button>
+      <a href="/">
+        <button className="categories">Categories</button>
+      </a>
       <div className="profile-section">
         <p className="username">Cnmoosavinia</p>
         <img

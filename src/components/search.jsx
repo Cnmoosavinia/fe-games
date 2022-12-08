@@ -1,13 +1,15 @@
 import { useEffect, useState } from "react";
-import { Link, useParams } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { getCategories } from "../api";
 import "./review-board.css";
 
-function Search({ loading, setLoading, setChosenCategory }) {
+function Search({ loading, setLoading, setChosenCategory, chosenCategory }) {
   const [categories, setCategories] = useState([]);
+  const navigate = useNavigate();
 
   const selectCategory = (e) => {
     setChosenCategory(e.target.id);
+    navigate(`/reviews?category=${e.target.id}`);
   };
 
   useEffect(() => {
@@ -23,16 +25,14 @@ function Search({ loading, setLoading, setChosenCategory }) {
       <ul className="categories-list">
         {categories.map((category) => {
           return (
-            <a href={`/reviews?category=${category.slug}`}>
-              <button
-                className="category"
-                key={category.slug}
-                id={category.slug}
-                onClick={selectCategory}
-              >
-                {category.slug}
-              </button>
-            </a>
+            <button
+              className="category"
+              key={category.slug}
+              id={category.slug}
+              onClick={selectCategory}
+            >
+              {category.slug}
+            </button>
           );
         })}
       </ul>
