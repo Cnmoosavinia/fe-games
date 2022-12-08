@@ -35,3 +35,13 @@ export const unlikeReview = (review_id) => {
     return res.data.review;
   });
 };
+
+export const postComment = (comment, review_id) => {
+  const inputComment = { username: "tickle122", body: comment };
+
+  return reviewApi
+    .post(`reviews/${review_id}/comments`, inputComment)
+    .then((res) => {
+      return res.data.comment;
+    });
+};
