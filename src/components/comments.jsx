@@ -3,23 +3,18 @@ import "./review.css";
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 
-function Comments({ comments, setComments, loading, setLoading }) {
+function Comments({ comments, setComments }) {
   const { review_id } = useParams();
   const [newComment, setNewComment] = useState("");
+  const [loadingComments, setLoadingComments] = useState(true);
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const refresh = document.getElementById("reloading");
-    refresh.classList.remove("reloading-off");
-
     postComment(newComment, review_id).then(() => {
-      getCommentsByReview(review_id)
-        .then((data) => {
-          setComments(data);
-        })
-        .then(() => {
-          refresh.classList.add("reloading-off");
-        });
+      getCommentsByReview(review_id).then((data) => {
+        setComments(data);
+        setLoadingComments(false);
+      });
     });
     setNewComment("");
   };
@@ -27,9 +22,16 @@ function Comments({ comments, setComments, loading, setLoading }) {
   useEffect(() => {
     getCommentsByReview(review_id).then((data) => {
       setComments(data);
-      setLoading(false);
+      setLoadingComments(false);
     });
   }, [review_id]);
+
+  if (loadingComments)
+    return (
+      <div id="reloading" className="reloading">
+        Loading
+      </div>
+    );
 
   return (
     <ul className="comment-list">
@@ -49,9 +51,6 @@ function Comments({ comments, setComments, loading, setLoading }) {
           />
           <input type="Submit" />
         </form>
-        <div id="reloading" className="reloading-off">
-          Loading
-        </div>
       </div>
       {comments.map((comment) => {
         return (

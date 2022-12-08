@@ -120,6 +120,6 @@
   display: flex;
 }
 
-.reloading-off {
-  display: none;
+.reloading {
+  text-align: center;
 }

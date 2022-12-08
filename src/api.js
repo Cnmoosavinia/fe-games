@@ -45,3 +45,9 @@ export const postComment = (comment, review_id) => {
       return res.data.comment;
     });
 };
+
+export const getCategories = () => {
+  return reviewApi.get(`categories`).then((res) => {
+    return res.data.categories;
+  });
+};

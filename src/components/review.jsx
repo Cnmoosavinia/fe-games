@@ -86,12 +86,7 @@ const Review = ({ loading, setLoading }) => {
         </button>
       </div>
       <div>
-        <Comments
-          comments={comments}
-          setComments={setComments}
-          loading={loading}
-          setLoading={setLoading}
-        />
+        <Comments comments={comments} setComments={setComments} />
       </div>
     </div>
   );
