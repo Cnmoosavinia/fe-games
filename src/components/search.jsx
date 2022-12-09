@@ -3,13 +3,12 @@ import { Link, useNavigate } from "react-router-dom";
 import { getCategories } from "../api";
 import "./review-board.css";
 
-function Search({ loading, setLoading, setChosenCategory, chosenCategory }) {
+function Search({ loading, setLoading }) {
   const [categories, setCategories] = useState([]);
   const navigate = useNavigate();
 
   const selectCategory = (e) => {
-    setChosenCategory(e.target.id);
-    navigate(`/reviews?category=${e.target.id}`);
+    navigate(`/categories/${e.target.id}`);
   };
 
   useEffect(() => {
