@@ -26,7 +26,9 @@ function Header() {
           <input type="text" placeholder="Search Reviews.."></input>
         </form>
       </div>
-      <button className="categories">Categories</button>
+      <a href="/">
+        <button className="categories">Categories</button>
+      </a>
       <div className="profile-section">
         <p className="username">{user.username}</p>
         <img className="my-face-lol" src={user.avatar_url}></img>

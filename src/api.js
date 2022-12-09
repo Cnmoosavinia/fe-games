@@ -4,13 +4,14 @@ const reviewApi = axios.create({
   baseURL: "https://itchy-cyan-salamander.cyclic.app/api",
 });
 
-export const getReviewBoard = () => {
-  return reviewApi.get("/reviews").then((res) => {
+export const getReviewBoard = (category) => {
+  return reviewApi.get("/reviews", { params: { category } }).then((res) => {
     return res.data.reviews;
   });
 };
 
 export const getReviewById = (review_id) => {
+  console.log("HERE <<<<<<<<<<<<<<<<<<");
   return reviewApi.get(`reviews/${review_id}`).then((res) => {
     return res.data.review;
   });

@@ -1,22 +1,17 @@
 import "./review-board.css";
-import { useEffect } from "react";
-import { getReviewBoard } from "../api";
-import { Link } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { getReviewBoard, getReviewBoardByQuery } from "../api";
+import { Link, useParams } from "react-router-dom";
 
-function ReviewList({
-  reviews,
-  setReviews,
-  loading,
-  setLoading,
-  chosenCategory,
-  setChosenCategory,
-}) {
+function ReviewList({ reviews, setReviews, loading, setLoading }) {
+  const { category } = useParams();
+
   useEffect(() => {
-    getReviewBoard().then((data) => {
+    getReviewBoard(category).then((data) => {
       setReviews(data);
       setLoading(false);
     });
-  }, []);
+  }, [category]);
 
   if (loading) return <p className="loading-screen">Loading Reviews...</p>;
   return (
