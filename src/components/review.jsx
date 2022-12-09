@@ -4,7 +4,7 @@ import { useParams } from "react-router-dom";
 import "./review.css";
 import Comments from "./comments.jsx";
 
-const Review = ({ loading, setLoading }) => {
+const Review = () => {
   const { review_id } = useParams();
   const [singleReview, setSingleReview] = useState({});
   const [comments, setComments] = useState([]);
@@ -12,15 +12,16 @@ const Review = ({ loading, setLoading }) => {
   const [dislikedReview, setDislikedReview] = useState(0);
   const [likeToggle, setLikeToggle] = useState(false);
   const [dislikeToggle, setDislikeToggle] = useState(false);
+  const [reviewLoading, setReviewLoading] = useState(true);
 
   useEffect(() => {
     getReviewById(review_id).then((data) => {
       setSingleReview(data);
-      setLoading(false);
+      setReviewLoading(false);
     });
   }, [review_id]);
 
-  if (loading) return <p className="loading-screen">Loading Review...</p>;
+  if (reviewLoading) return <p className="loading-screen">Loading Review...</p>;
   return (
     <div>
       <div className="review">
@@ -86,12 +87,7 @@ const Review = ({ loading, setLoading }) => {
         </button>
       </div>
       <div>
-        <Comments
-          comments={comments}
-          setComments={setComments}
-          loading={loading}
-          setLoading={setLoading}
-        />
+        <Comments comments={comments} setComments={setComments} />
       </div>
     </div>
   );

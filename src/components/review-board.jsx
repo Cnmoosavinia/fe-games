@@ -8,13 +8,20 @@ import Search from "./search.jsx";
 function ReviewBoard() {
   const [reviews, setReviews] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [chosenCategory, setChosenCategory] = useState("");
 
   return (
     <div className="ReviewBoard">
       <Routes>
         <Route
           path="/"
-          element={<Search loading={loading} setLoading={setLoading} />}
+          element={
+            <Search
+              loading={loading}
+              setLoading={setLoading}
+              setChosenCategory={setChosenCategory}
+            />
+          }
         ></Route>
         <Route
           path="/reviews"
@@ -24,6 +31,8 @@ function ReviewBoard() {
               setReviews={setReviews}
               loading={loading}
               setLoading={setLoading}
+              chosenCategory={chosenCategory}
+              setChosenCategory={setChosenCategory}
             />
           }
         ></Route>

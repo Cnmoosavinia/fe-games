@@ -3,7 +3,14 @@ import { useEffect } from "react";
 import { getReviewBoard } from "../api";
 import { Link } from "react-router-dom";
 
-function ReviewList({ reviews, setReviews, loading, setLoading }) {
+function ReviewList({
+  reviews,
+  setReviews,
+  loading,
+  setLoading,
+  chosenCategory,
+  setChosenCategory,
+}) {
   useEffect(() => {
     getReviewBoard().then((data) => {
       setReviews(data);

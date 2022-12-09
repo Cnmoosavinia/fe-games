@@ -35,3 +35,25 @@ export const unlikeReview = (review_id) => {
     return res.data.review;
   });
 };
+
+export const postComment = (username, comment, review_id) => {
+  const inputComment = { username: username, body: comment };
+
+  return reviewApi
+    .post(`reviews/${review_id}/comments`, inputComment)
+    .then((res) => {
+      return res.data.comment;
+    });
+};
+
+export const getCategories = () => {
+  return reviewApi.get(`categories`).then((res) => {
+    return res.data.categories;
+  });
+};
+
+export const getUsers = () => {
+  return reviewApi.get(`users`).then((res) => {
+    return res.data.users;
+  });
+};
