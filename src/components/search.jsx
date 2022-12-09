@@ -8,7 +8,7 @@ function Search({ loading, setLoading }) {
   const navigate = useNavigate();
 
   const selectCategory = (e) => {
-    navigate(`/categories/${e.target.id}`);
+    navigate(`/reviews/categories/${e.target.id}`);
   };
 
   useEffect(() => {

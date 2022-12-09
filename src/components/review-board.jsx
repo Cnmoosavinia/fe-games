@@ -32,7 +32,7 @@ function ReviewBoard() {
           element={<Review loading={loading} setLoading={setLoading} />}
         ></Route>
         <Route
-          path="/categories/:category"
+          path="/reviews/categories/:category"
           element={
             <ReviewList
               reviews={reviews}

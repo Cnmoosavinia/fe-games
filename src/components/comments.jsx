@@ -3,7 +3,7 @@ import "./review.css";
 import { useParams } from "react-router-dom";
 import { useEffect, useState, useContext } from "react";
 import { UserContext } from "../context";
-import userEvent from "@testing-library/user-event";
+import { formatDistanceToNowStrict } from "date-fns";
 
 function Comments({ comments, setComments }) {
   const { review_id } = useParams();
@@ -80,7 +80,13 @@ function Comments({ comments, setComments }) {
           <li key={comment.comment_id}>
             <div className="comment-box">
               <h6 className="user">/{comment.author}</h6>
-              <h6 className="time">{comment.created_at}</h6>
+              <h6 className="time">
+                {formatDistanceToNowStrict(
+                  new Date(comment.created_at),
+                  "yyyy-MM-dd"
+                )}{" "}
+                ago
+              </h6>
               <p className="comment">{comment.body}</p>
               <button className="up-vote">⬆️</button>
               <p className="votes">{comment.votes}</p>

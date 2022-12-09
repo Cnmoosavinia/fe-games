@@ -31,8 +31,15 @@
   grid-area: view-all;
 }
 
-.review-list {
+.sort-menu {
   padding-top: 60px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.review-list {
+  padding-top: 20px;
   list-style-type: none;
   display: grid;
   grid-gap: 10px;
@@ -59,9 +66,13 @@
   margin: 0px;
 }
 
+.nested-title {
+  margin: 0px;
+  height: 50px;
+}
 .owner {
   grid-area: owner;
-  height: 50px;
+  height: 25px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -81,6 +92,7 @@
   text-align: center;
   height: 25px;
   margin: 0px;
+  padding-right: 10px;
 }
 
 .review-votes {
@@ -90,16 +102,27 @@
   margin: 0px;
 }
 
+.posted-date {
+  grid-area: date;
+  height: 25px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-left: 2px;
+  margin: 0px;
+}
+
 .reviewBox {
   display: grid;
   grid-template-columns: auto auto auto;
-  grid-template-rows: auto;
+  grid-template-rows: 25px 50px auto 25px;
   grid-template-areas:
-    "owner title title"
+    "owner date date"
+    "title title title"
     "reviewImg reviewImg reviewImg"
     "category comment-count review-votes";
   width: 370px;
-  height: 310px;
+  height: 350px;
   border: 1px;
   border-color: rgb(227, 227, 227);
   border-style: solid;

@@ -3,6 +3,7 @@ import { getReviewById, likeReview, unlikeReview } from "../api";
 import { useParams } from "react-router-dom";
 import "./review.css";
 import Comments from "./comments.jsx";
+import { formatDistanceToNowStrict } from "date-fns";
 
 const Review = () => {
   const { review_id } = useParams();
@@ -27,7 +28,14 @@ const Review = () => {
       <div className="review">
         <h2 className="title">{singleReview.title}</h2>
         <h6 className="owner">/{singleReview.owner}</h6>
-        <h6 className="date">{singleReview.created_at}</h6>
+        <h6 className="date">
+          posted{" "}
+          {formatDistanceToNowStrict(
+            new Date(singleReview.created_at),
+            "yyyy-MM-dd"
+          )}{" "}
+          ago
+        </h6>
         <p className="body">{singleReview.review_body}</p>
         <h5 className="comment-header">
           {singleReview.comment_count} Comments
